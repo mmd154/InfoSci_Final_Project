@@ -1,22 +1,14 @@
-"""
-Generates a bar chart comparing attack time before vs. after a countermeasure,
-on a log scale so large slowdown factors (e.g. 100,000x+) are still visible.
 
-Install dependency first if needed:
-    pip install matplotlib
-"""
 
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
-# ---- Edit these values for your own data ----
 labels = ["SHA-256\n(unsalted)", "bcrypt\n(work factor 12)"]
-times_seconds = [0.000481, 208]   # values in seconds
-annotations = ["0.481 ms", "208 s"]  # human-readable labels shown above each bar
-slowdown_text = "497,607x slowdown"  # set to None to hide this annotation
+times_seconds = [0.000481, 208]   
+annotations = ["0.481 ms", "208 s"]  
+slowdown_text = "497,607x slowdown"  
 chart_title = "Crack Time Before vs. After Countermeasure"
 output_path = "crack_time_comparison.png"
-# ----------------------------------------------
 
 colors = ["#4C72B0", "#DD8452"]
 
