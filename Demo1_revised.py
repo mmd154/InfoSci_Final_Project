@@ -1,6 +1,4 @@
 """
-Demo 1: Offline Dictionary Attack on a Password Authentication System
-ECE 1155 - Information Security Course Project
 
 System Model:
     A simplified password-based authentication system that stores
@@ -56,7 +54,7 @@ STRONG_PASSWORDS = [
 
 # Parameters
 # ---------------------------------------------------------------------------
-NUM_ACCOUNTS = 6          # total accounts in the victim database
+NUM_ACCOUNTS = 10          # total accounts in the victim database
 NUM_WEAK_ACCOUNTS = 2     # how many accounts get a top-100 password
 BCRYPT_COST = 12          # bcrypt work factor (higher = slower/stronger)
 
@@ -144,7 +142,7 @@ if __name__ == "__main__":
     # After countermeasure (salted bcrypt)
     bcrypt_db = {u: hash_bcrypt(pw) for u, pw in plaintexts.items()}
     cracked_bc, time_bc = run_dictionary_attack(bcrypt_db, check_bcrypt)
-    print_results(f"AFTER countermeasure (bcrypt, cost={BCRYPT_COST})",
+    print_results("AFTER countermeasure (bcrypt, salted)",
                    bcrypt_db, cracked_bc, time_bc)
 
     # Summary comparison
